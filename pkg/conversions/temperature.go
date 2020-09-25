@@ -6,6 +6,15 @@ const unitCelsius = "°C"
 const unitFahrenheit = "°F"
 const unitKelvin = "°K"
 
+var Temperatures = []Converter{
+	CelsiusFahrenheit,
+	CelsiusKelvin,
+	FahrenheitCelsius,
+	FahrenheitKelvin,
+	KelvinCelsius,
+	KelvinFahrenheit,
+}
+
 func CelsiusFahrenheit(in Amount) Conversion {
 	return Conversion{
 		Input: Amount{

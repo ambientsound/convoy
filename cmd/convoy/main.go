@@ -26,19 +26,14 @@ func run() error {
 		return err
 	}
 
-	conv := []conversions.Converter{
-		conversions.CelsiusFahrenheit,
-		conversions.CelsiusKelvin,
-		conversions.FahrenheitCelsius,
-		conversions.FahrenheitKelvin,
-		conversions.KelvinCelsius,
-		conversions.KelvinFahrenheit,
-	}
+	converters := make([]conversions.Converter, 0)
+	converters = append(converters, conversions.Temperatures...)
+	converters = append(converters, conversions.Masses...)
 
 	in := conversions.Amount{
 		Value: val,
 	}
-	for _, c := range conv {
+	for _, c := range converters {
 		conversion := c(in)
 		fmt.Printf("%15s = %s\n", conversion.Input, conversion.Output)
 	}
